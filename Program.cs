@@ -48,3 +48,49 @@ foreach (var value in enterosList2) {
 }
 
 Console.WriteLine();
+
+/* Diccionarios */
+var diccionario = new Dictionary<string, List<int>>();
+diccionario.Add("Par", new List<int>());    
+diccionario.Add("Impar", new List<int>());
+
+for (int i = 0; i <= 10; i++) {
+    var key = i % 2 == 0 ? "Par" : "Impar";
+    diccionario[key].Add(i);
+}
+
+foreach (var items in diccionario){
+    Console.WriteLine($"Key: { items.Key }");
+    foreach (var value in items.Value){
+        Console.WriteLine($"Value: { value }");
+    }
+}
+
+/* IEnumerable */
+var num = new List<int> { 3, 4, 5 };
+string[] nombresCompletos = { "Fer Santi", "María Dae" };
+
+Console.WriteLine();
+imprimirConsola(num);
+imprimirConsola(nombresCompletos);
+
+void imprimirConsola<T>(IEnumerable<T> valores) {
+    foreach (var valor in valores) {
+        Console.WriteLine(valor);
+    }
+}
+
+/* Yield y Ejecución Diferida */
+var enumerableNumeros = primerosTresNumeros();
+var todosNumeros = enumerableNumeros.ToList();
+
+foreach (var valor in todosNumeros) {
+    Console.WriteLine(valor);
+}
+
+IEnumerable<int> primerosTresNumeros() {
+    yield return 1;
+    yield return 2;
+    yield return 3;
+}
+
