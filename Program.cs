@@ -94,3 +94,30 @@ IEnumerable<int> primerosTresNumeros() {
     yield return 3;
 }
 
+var Fernando = new Persona { Nombre = "Fernando", Edad = 25 };
+var Maria = new Persona { Nombre = "María Fernanda", Edad = 22 };
+var Marisol = new Persona { Nombre = "Marisol", Edad = 25 };
+
+var personas = new List<Persona>() { 
+    Fernando, 
+    Maria, 
+    Marisol,
+    new Persona { Nombre = "Wendy", Edad = 23 },
+    new Persona { Nombre = "Luis", Edad = 31 },
+    new Persona { Nombre = "Leonardo", Edad = 1 },
+    new Persona { Nombre = "Nilda", Edad = 22 },
+};
+
+personas.Sort();
+Console.WriteLine("Ordenando por edad: ");
+
+foreach (var persona in personas) {
+    Console.WriteLine($"Nombre: { persona.Nombre } | Edad: { persona.Edad }");
+}
+
+personas.Sort(new PersonaComparador());
+Console.WriteLine("\nOrdenando por nombre: ");
+
+foreach (var persona in personas) {
+    Console.WriteLine($"Nombre: { persona.Nombre } | Edad: { persona.Edad }");
+}
