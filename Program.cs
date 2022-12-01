@@ -4,6 +4,7 @@ using Genericos.Clases;
 
 Console.WriteLine("GENÉRICOS Y COLECCIONES\n");
 
+/* Genéricos y sus restricciones */
 int[] numeros = { 1, 2, 3 };
 string[] nombres = { "Fernando", "María", "Marisol", "Luis" };
 DateTime[] fechas = { DateTime.Today, DateTime.Today.AddDays(1) };
@@ -29,3 +30,21 @@ T? primerElementoOPorDefecto<T>(T[] arreglo) {
 
     return arreglo[0];
 }
+
+/* Colecciones - Listado */
+List<int> enterosList = new List<int>();
+enterosList.Add(0);
+enterosList.Add(4);
+enterosList.Add(8);
+
+var enterosList2 = new List<int> { 3, 2, 5, -6 };
+enterosList2.Add(-1);
+
+enterosList2.Sort();
+enterosList2.RemoveAt(1);
+
+foreach (var value in enterosList2) {
+    Console.WriteLine($"Valor: { value }");
+}
+
+Console.WriteLine();
